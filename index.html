@@ -3,320 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Akshara Books | Hyderabad</title>
+    <title>Akshara Books | Coming Soon</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap" rel="stylesheet">
+
     <style>
-        /* --- THEME: MODERN SOFT (Blue/Grey) --- */
         :root {
-            --bg-color: #F5F7FA;       /* Soft Off-White/Blue-Grey Background */
-            --text-main: #2C3E50;      /* Deep Blue-Grey Text */
-            --text-light: #546E7A;     /* Muted Slate Grey */
-            --accent: #5D8AA8;         /* Air Force Blue */
-            --border: #dae1e7;         /* Subtle Border */
-            --white: #ffffff;
+            --bg-color: #fdfbf7;
+            --text-main: #2c2c2c;
+            --accent: #5c3a21;
+            --highlight: #d4a373;
+            --whatsapp-green: #25D366;
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
+            font-family: 'Lato', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.8;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Georgia', 'Playfair Display', serif;
-            font-weight: normal;
-            color: var(--text-main);
-        }
-
-        a {
-            color: var(--text-main);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        a:hover {
-            color: var(--accent);
-        }
-
-        /* --- HEADER --- */
-        header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
-            padding: 50px 20px 30px 20px;
-            background-color: var(--bg-color);
         }
 
-        .logo {
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            border: 1px solid #e0dcd5;
+            background: #fff;
+            box-shadow: 0 10px 30px rgba(92, 58, 33, 0.1);
+            border-radius: 8px;
+        }
+
+        .logo-img {
             max-width: 200px;
-            margin-bottom: 15px;
+            height: auto;
+            margin-bottom: 1rem;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .tagline {
-            font-style: italic;
-            font-family: 'Georgia', serif;
-            color: var(--text-light);
-            font-size: 0.95em;
+        h1 {
+            font-family: 'Merriweather', serif;
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+            font-weight: normal;
         }
 
-        /* --- NAVIGATION --- */
-        nav {
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            margin-top: 25px;
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            align-items: center;
+        p.subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 2rem;
+            line-height: 1.6;
         }
 
-        nav a {
-            font-size: 0.85em;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: bold;
-            color: var(--text-main);
-        }
-
-        /* --- HERO IMAGE --- */
-        .hero-image {
-            width: 100%;
-            height: 550px; 
-            overflow: hidden; 
-            margin-bottom: 60px;
-            background-color: #E0E7EF;
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;   
-            object-position: center; 
-            display: block;
-        }
-
-        /* --- MAIN CONTAINER --- */
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px 80px 20px;
-            text-align: center;
-        }
-
-        .statement-text {
-            font-size: 1.15em;
-            color: var(--text-light);
-            margin-bottom: 40px;
-            line-height: 1.9;
-        }
-        
-        .statement-text strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 12px 28px;
-            font-size: 0.9em;
-            letter-spacing: 1px;
-            display: inline-block;
-            margin-top: 20px;
+        .divider {
+            height: 3px;
+            width: 60px;
+            background-color: var(--highlight);
+            margin: 0 auto 2rem auto;
             border-radius: 2px;
         }
-        
-        .btn:hover {
-            background-color: var(--accent);
-        }
 
-        /* --- COLLECTIONS GRID --- */
-        .grid-section {
-            border-top: 1px solid var(--border);
-            padding-top: 60px;
-            margin-top: 60px;
-            text-align: left;
-        }
-
-        .grid-section h3 {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 1.8em;
-            color: var(--accent);
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 40px;
-        }
-
-        .grid-item h4 {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            border-bottom: 2px solid var(--border);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #E8F1F5;
-            padding: 70px 20px;
-            font-size: 0.9em;
-            color: var(--text-main);
-            border-top: 1px solid var(--border);
-        }
-
-        .footer-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-
-        .footer-col h5 {
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 25px;
-            font-size: 0.85em;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .footer-col p { margin: 8px 0; color: var(--text-light); }
-        
-        /* Instagram Icon Style */
-        .insta-icon {
-            width: 24px;
-            height: 24px;
-            fill: var(--text-main); /* Makes the icon the same color as text */
-            transition: fill 0.3s;
-            vertical-align: middle;
-            margin-right: 8px;
-        }
-        
-        .insta-link:hover .insta-icon {
-            fill: #E1306C; /* Instagram Pink on Hover */
-        }
-        
-        .insta-link {
-            display: inline-flex;
+        /* BUTTON & CONTACT AREA */
+        .action-area {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            margin-top: 15px;
+            gap: 15px;
+        }
+
+        .btn-whatsapp {
+            display: inline-block;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
             font-weight: bold;
+            border-radius: 5px;
+            font-family: 'Merriweather', serif;
+            transition: all 0.2s;
+            font-size: 1.1rem;
+        }
+        .btn-whatsapp:hover {
+            background-color: #1ebc57;
+            transform: translateY(-2px);
+        }
+
+        .phone-display {
+            font-family: 'Merriweather', serif;
+            color: var(--accent);
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+        
+        .phone-number {
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .footer-info {
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: #888;
+            border-top: 1px solid #eee;
+            padding-top: 1rem;
         }
 
         @media (max-width: 600px) {
-            nav { flex-direction: column; gap: 15px; }
-            .hero-image { height: 300px; } 
+            .container { border: none; box-shadow: none; background: transparent; padding: 1rem; }
+            .btn-whatsapp { width: 100%; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <img src="Images/aksLogo.png" alt="Akshara Books" class="logo">
-        <p class="tagline">Hyderabad's Independent Bookstore Since 1997</p>
+    <div class="container">
+        <img src="images/aksLogo.png" alt="Akshara Books Logo" class="logo-img">
         
-        <nav>
-            <a href="#">Home</a>
-            <a href="#about">Our Story</a>
-            <a href="#collections">Collections</a>
-            <a href="#visit">Visit Us</a>
-            </nav>
-    </header>
+        <h1>Akshara.books</h1>
+        <div class="divider"></div>
 
-    <div class="hero-image">
-        <img src="Images/shop.png" alt="Akshara Books Children's Collection">
-    </div>
-
-    <div class="container" id="about">
-        <h2>Welcome to Akshara</h2>
-        <br>
-        <p class="statement-text">
-            <strong>We are a neighborhood sanctuary for stories.</strong><br><br>
-            Akshara Books has been a quiet home for Hyderabad's readers since 1997. We believe that bookstores are not just about selling books; they are about the pause in a busy day, the smell of paper, and the discovery of a world you didn't know existed.
-            <br><br>
-            We are thoughtful about what we put on our shelves. Whether you are looking for a bedtime story for your child or a classic novel in Telugu, our collection is curated for the curious mind.
+        <h2>The Shelves are Being Stacked.</h2>
+        <p class="subtitle">
+            Jubilee Hills' favorite literary haven is coming online.<br>
+            We are currently cataloging our collection to bring the browsing experience to your screen.
         </p>
 
-        <p style="color: var(--text-main);">Looking for something specific?</p>
-        <a href="mailto:contact@aksharabooks.com" class="btn">Request a Book</a>
+        <div class="action-area">
+            <a href="https://wa.me/919849013906?text=Hi Akshara, I am looking for a book..." class="btn-whatsapp">
+                Chat on WhatsApp
+            </a>
 
-        <div class="grid-section" id="collections">
-            <h3>On Our Shelves</h3>
-            <div class="grid">
-                
-                <div class="grid-item">
-                    <h4>Fiction & Literature</h4>
-                    <p style="color: var(--text-light);">From timeless classics to contemporary bestsellers. A wide range of novels to get lost in.</p>
-                </div>
-                
-                <div class="grid-item">
-                    <h4>Children's Corner</h4>
-                    <p style="color: var(--text-light);">A massive collection for young minds. Picture books, early readers, and adventures for all ages.</p>
-                </div>
-                
-                <div class="grid-item">
-                    <h4>Non-Fiction</h4>
-                    <p style="color: var(--text-light);">Biographies, History, Management, and Philosophy for the lifelong learner.</p>
-                </div>
-                
-                <div class="grid-item">
-                    <h4>Telugu Literature</h4>
-                    <p style="color: var(--text-light);">Celebrating our roots with a dedicated selection of Telugu novels, poetry, and history.</p>
-                </div>
-
+            <div class="phone-display">
+                Or Call Us: <span class="phone-number">+91 40 2355 4096</span>
             </div>
+        </div>
+
+        <div class="footer-info">
+            <p><strong>Visit Us:</strong> Plot No. 60, Road No. 70, Jubilee Hills, Hyderabad.</p>
+            <p>Open Daily: 10:00 AM - 9:00 PM</p>
         </div>
     </div>
-
-    <footer id="visit">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h5>Store Hours</h5>
-                <p>Monday - Sunday</p>
-                <p><strong>11:00 AM - 7:30 PM</strong></p>
-                <p style="font-size: 0.85em; margin-top: 15px;">Open 7 Days a Week</p>
-            </div>
-
-            <div class="footer-col">
-                <h5>Contact</h5>
-                <p><strong>+91 40 2355 4444</strong></p>
-                <p><a href="mailto:contact@aksharabooks.com">contact@aksharabooks.com</a></p>
-                
-                <a href="https://www.instagram.com/aksharabookstore" target="_blank" class="insta-link">
-                    <svg class="insta-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                    
-                </a>
-
-                <br>
-                <a href="https://goo.gl/maps/YOUR_LINK_HERE" target="_blank" style="text-decoration: underline; color: var(--text-main); display: inline-block; margin-top: 15px;">Get Directions →</a>
-            </div>
-
-            <div class="footer-col">
-                <h5>Location</h5>
-                <p>Plot No. 60A, Road No. 70</p>
-                <p>Journalist Colony, Jubilee Hills</p>
-                <p>Hyderabad, Telangana</p>
-            </div>
-        </div>
-        
-        <div style="text-align: center; margin-top: 50px; color: var(--text-light); font-size: 0.8em;">
-            &copy; 2026 Akshara Books. All Rights Reserved.
-        </div>
-    </footer>
 
 </body>
 </html>
