@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshara Books | Hyderabad's Heritage Bookstore</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Source+Sans+3:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #F9FAFB;
+      --color-surface: #FFFFFF;
+      --color-text: #1F2937;
+      --color-accent: #C5A059;
+      --color-secondary: #6B7280;
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-text);
+    }
+    
+    .font-serif {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+    
+    .app-wrapper {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;
+    }
+    
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Timeline styling */
+    .timeline-line {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, var(--color-accent), var(--color-accent) 50%, transparent);
+    }
+    
+    .timeline-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: var(--color-accent);
+      border: 4px solid var(--color-bg);
+      box-shadow: 0 0 0 2px var(--color-accent);
+    }
+    
+    /* Collection card hover */
+    .collection-card {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    
+    .collection-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .collection-card .card-overlay {
+      transition: opacity 0.4s ease;
+    }
+    
+    .collection-card:hover .card-overlay {
+      opacity: 1;
+    }
+    
+    /* Fade in animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate-fade-in {
+      animation: fadeInUp 0.8s ease forwards;
+    }
+    
+    .animate-delay-1 { animation-delay: 0.1s; }
+    .animate-delay-2 { animation-delay: 0.2s; }
+    .animate-delay-3 { animation-delay: 0.3s; }
+    .animate-delay-4 { animation-delay: 0.4s; }
+    
+    /* Hero image pattern */
+    .hero-pattern {
+      background-image: 
+        linear-gradient(135deg, rgba(197, 160, 89, 0.1) 25%, transparent 25%),
+        linear-gradient(225deg, rgba(197, 160, 89, 0.1) 25%, transparent 25%),
+        linear-gradient(45deg, rgba(197, 160, 89, 0.1) 25%, transparent 25%),
+        linear-gradient(315deg, rgba(197, 160, 89, 0.1) 25%, transparent 25%);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 0, 20px -20px, 0px 20px;
+    }
+
+    /* Gallery grid hover effect */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-item img {
+      transition: transform 0.6s ease;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full">
+  <div class="app-wrapper" style="background-color: var(--color-bg);"><!-- Navigation -->
+   <nav class="fixed top-0 left-0 right-0 z-50 bg-opacity-95" style="background-color: var(--color-bg); border-bottom: 1px solid rgba(197, 160, 89, 0.2);">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"><a href="#" class="font-serif text-2xl font-semibold tracking-wide" style="color: var(--color-text);"> <span style="color: var(--color-accent);">A</span> Akshara </a>
+     <div class="hidden md:flex items-center space-x-8"><a href="#story" class="text-sm font-medium tracking-wider uppercase hover:opacity-70 transition-opacity" style="color: var(--color-secondary);">Our Story</a> <a href="#journey" class="text-sm font-medium tracking-wider uppercase hover:opacity-70 transition-opacity" style="color: var(--color-secondary);">Journey</a> <a href="#authors" class="text-sm font-medium tracking-wider uppercase hover:opacity-70 transition-opacity" style="color: var(--color-secondary);">Authors</a> <a href="#collections" class="text-sm font-medium tracking-wider uppercase hover:opacity-70 transition-opacity" style="color: var(--color-secondary);">Collections</a> <a href="#contact" class="px-5 py-2 text-sm font-medium tracking-wider uppercase transition-all hover:opacity-90" style="background-color: var(--color-accent); color: white;">Visit Us</a>
+     </div><button class="md:hidden p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+      </svg></button>
+    </div><!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 space-y-3" style="background-color: var(--color-bg);"><a href="#story" class="block text-sm font-medium tracking-wider uppercase" style="color: var(--color-secondary);">Our Story</a> <a href="#journey" class="block text-sm font-medium tracking-wider uppercase" style="color: var(--color-secondary);">Journey</a> <a href="#authors" class="block text-sm font-medium tracking-wider uppercase" style="color: var(--color-secondary);">Authors</a> <a href="#collections" class="block text-sm font-medium tracking-wider uppercase" style="color: var(--color-secondary);">Collections</a> <a href="#contact" class="block text-sm font-medium tracking-wider uppercase" style="color: var(--color-accent);">Visit Us</a>
+    </div>
+   </nav><!-- Hero Section -->
+   <section class="relative min-h-screen flex items-center pt-20">
+    <div class="absolute inset-0 hero-pattern opacity-50"></div>
+    <div class="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center relative z-10"><!-- Hero Text -->
+     <div class="space-y-8 animate-fade-in">
+      <div class="space-y-2">
+       <p class="text-sm font-medium tracking-widest uppercase" style="color: var(--color-accent);">Est. 1997 • Hyderabad</p>
+       <h1 id="hero-title" class="font-serif text-5xl md:text-6xl lg:text-7xl font-medium leading-tight" style="color: var(--color-text);">Where Stories<br>
+        Find Their<br><em class="font-normal" style="color: var(--color-accent);">Readers</em></h1>
+      </div>
+      <p id="hero-subtitle" class="text-lg md:text-xl leading-relaxed max-w-lg" style="color: var(--color-secondary);">For three decades, we've been curating the finest literary collections in the heart of Hyderabad. A sanctuary for bibliophiles.</p>
+      <div class="flex flex-wrap gap-4"><a href="#collections" class="inline-flex items-center px-8 py-4 text-sm font-medium tracking-wider uppercase transition-all hover:opacity-90" style="background-color: var(--color-text); color: white;"> Explore Collections 
+        <svg class="w-4 h-4 ml-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg></a> <a href="#story" class="inline-flex items-center px-8 py-4 text-sm font-medium tracking-wider uppercase border-2 transition-all hover:opacity-70" style="border-color: var(--color-text); color: var(--color-text);"> Our Story </a>
+      </div>
+     </div><!-- Hero Image -->
+     <div class="relative animate-fade-in animate-delay-2">
+      <div class="absolute -inset-4 border-2 opacity-30" style="border-color: var(--color-accent);"></div>
+      <div class="relative overflow-hidden" style="background-color: var(--color-surface);"><!-- Bookshop Interior SVG Illustration -->
+       <svg viewbox="0 0 600 450" class="w-full h-auto" style="background: linear-gradient(180deg, #F5F0E8 0%, #EDE8DD 100%);"><!-- Background shelves --> <rect x="0" y="0" width="600" height="450" fill="#F5F0E8" /> <!-- Wooden floor --> <rect x="0" y="380" width="600" height="70" fill="#8B7355" /> <line x1="0" y1="400" x2="600" y2="400" stroke="#6B5344" stroke-width="1" /> <line x1="0" y1="420" x2="600" y2="420" stroke="#6B5344" stroke-width="1" /> <!-- Back wall bookshelf --> <rect x="20" y="40" width="560" height="340" fill="#5C4033" rx="4" /> <!-- Shelf rows --> <g fill="#6B4E31">
+         <rect x="30" y="50" width="540" height="12" />
+         <rect x="30" y="120" width="540" height="12" />
+         <rect x="30" y="190" width="540" height="12" />
+         <rect x="30" y="260" width="540" height="12" />
+         <rect x="30" y="330" width="540" height="12" />
+        </g> <!-- Books on shelves - Row 1 --> <g transform="translate(40, 62)">
+         <rect x="0" y="0" width="18" height="52" fill="#C5A059" rx="1" />
+         <rect x="22" y="5" width="14" height="47" fill="#1F2937" rx="1" />
+         <rect x="40" y="2" width="20" height="50" fill="#8B4513" rx="1" />
+         <rect x="64" y="8" width="12" height="44" fill="#6B8E23" rx="1" />
+         <rect x="80" y="0" width="16" height="52" fill="#B8860B" rx="1" />
+         <rect x="100" y="4" width="22" height="48" fill="#2F4F4F" rx="1" />
+         <rect x="126" y="6" width="14" height="46" fill="#8B0000" rx="1" />
+         <rect x="144" y="0" width="18" height="52" fill="#4682B4" rx="1" />
+         <rect x="166" y="3" width="20" height="49" fill="#DAA520" rx="1" />
+         <rect x="190" y="7" width="12" height="45" fill="#556B2F" rx="1" />
+         <rect x="206" y="0" width="24" height="52" fill="#8B4513" rx="1" />
+         <rect x="234" y="5" width="16" height="47" fill="#C5A059" rx="1" />
+         <rect x="254" y="2" width="18" height="50" fill="#1F2937" rx="1" />
+         <rect x="276" y="8" width="14" height="44" fill="#708090" rx="1" />
+         <rect x="294" y="0" width="20" height="52" fill="#8B0000" rx="1" />
+         <rect x="318" y="4" width="16" height="48" fill="#2E8B57" rx="1" />
+         <rect x="338" y="6" width="22" height="46" fill="#B8860B" rx="1" />
+         <rect x="364" y="0" width="14" height="52" fill="#4169E1" rx="1" />
+         <rect x="382" y="3" width="18" height="49" fill="#8B4513" rx="1" />
+         <rect x="404" y="7" width="20" height="45" fill="#C5A059" rx="1" />
+         <rect x="428" y="0" width="12" height="52" fill="#2F4F4F" rx="1" />
+         <rect x="444" y="5" width="24" height="47" fill="#DAA520" rx="1" />
+         <rect x="472" y="2" width="16" height="50" fill="#556B2F" rx="1" />
+         <rect x="492" y="8" width="18" height="44" fill="#8B0000" rx="1" />
+        </g> <!-- Books on shelves - Row 2 --> <g transform="translate(40, 132)">
+         <rect x="0" y="3" width="20" height="49" fill="#8B0000" rx="1" />
+         <rect x="24" y="0" width="14" height="52" fill="#DAA520" rx="1" />
+         <rect x="42" y="6" width="18" height="46" fill="#2F4F4F" rx="1" />
+         <rect x="64" y="2" width="22" height="50" fill="#C5A059" rx="1" />
+         <rect x="90" y="8" width="12" height="44" fill="#4682B4" rx="1" />
+         <rect x="106" y="0" width="16" height="52" fill="#8B4513" rx="1" />
+         <rect x="126" y="4" width="20" height="48" fill="#556B2F" rx="1" />
+         <rect x="150" y="6" width="14" height="46" fill="#B8860B" rx="1" />
+         <rect x="168" y="0" width="24" height="52" fill="#1F2937" rx="1" />
+         <rect x="196" y="3" width="16" height="49" fill="#6B8E23" rx="1" />
+         <rect x="216" y="7" width="18" height="45" fill="#8B0000" rx="1" />
+         <rect x="238" y="0" width="12" height="52" fill="#C5A059" rx="1" />
+         <rect x="254" y="5" width="22" height="47" fill="#708090" rx="1" />
+         <rect x="280" y="2" width="14" height="50" fill="#2E8B57" rx="1" />
+         <rect x="298" y="8" width="20" height="44" fill="#DAA520" rx="1" />
+         <rect x="322" y="0" width="16" height="52" fill="#4169E1" rx="1" />
+         <rect x="342" y="4" width="18" height="48" fill="#8B4513" rx="1" />
+         <rect x="364" y="6" width="24" height="46" fill="#C5A059" rx="1" />
+         <rect x="392" y="0" width="12" height="52" fill="#556B2F" rx="1" />
+         <rect x="408" y="3" width="20" height="49" fill="#B8860B" rx="1" />
+         <rect x="432" y="7" width="14" height="45" fill="#1F2937" rx="1" />
+         <rect x="450" y="0" width="18" height="52" fill="#8B0000" rx="1" />
+         <rect x="472" y="5" width="22" height="47" fill="#2F4F4F" rx="1" />
+         <rect x="498" y="2" width="16" height="50" fill="#6B8E23" rx="1" />
+        </g> <!-- Books on shelves - Row 3 --> <g transform="translate(40, 202)">
+         <rect x="0" y="6" width="16" height="46" fill="#4682B4" rx="1" />
+         <rect x="20" y="0" width="22" height="52" fill="#8B4513" rx="1" />
+         <rect x="46" y="4" width="14" height="48" fill="#C5A059" rx="1" />
+         <rect x="64" y="8" width="18" height="44" fill="#2E8B57" rx="1" />
+         <rect x="86" y="0" width="20" height="52" fill="#B8860B" rx="1" />
+         <rect x="110" y="3" width="12" height="49" fill="#1F2937" rx="1" />
+         <rect x="126" y="6" width="24" height="46" fill="#8B0000" rx="1" />
+         <rect x="154" y="0" width="16" height="52" fill="#DAA520" rx="1" />
+         <rect x="174" y="5" width="18" height="47" fill="#556B2F" rx="1" />
+         <rect x="196" y="2" width="14" height="50" fill="#708090" rx="1" />
+         <rect x="214" y="8" width="22" height="44" fill="#C5A059" rx="1" />
+         <rect x="240" y="0" width="20" height="52" fill="#2F4F4F" rx="1" />
+         <rect x="264" y="4" width="12" height="48" fill="#6B8E23" rx="1" />
+         <rect x="280" y="6" width="16" height="46" fill="#8B4513" rx="1" />
+         <rect x="300" y="0" width="24" height="52" fill="#4169E1" rx="1" />
+         <rect x="328" y="3" width="14" height="49" fill="#B8860B" rx="1" />
+         <rect x="346" y="7" width="18" height="45" fill="#8B0000" rx="1" />
+         <rect x="368" y="0" width="20" height="52" fill="#DAA520" rx="1" />
+         <rect x="392" y="5" width="22" height="47" fill="#1F2937" rx="1" />
+         <rect x="418" y="2" width="12" height="50" fill="#C5A059" rx="1" />
+         <rect x="434" y="8" width="16" height="44" fill="#2E8B57" rx="1" />
+         <rect x="454" y="0" width="18" height="52" fill="#556B2F" rx="1" />
+         <rect x="476" y="4" width="24" height="48" fill="#708090" rx="1" />
+         <rect x="504" y="6" width="14" height="46" fill="#8B4513" rx="1" />
+        </g> <!-- Books on shelves - Row 4 --> <g transform="translate(40, 272)">
+         <rect x="0" y="0" width="24" height="52" fill="#DAA520" rx="1" />
+         <rect x="28" y="5" width="16" height="47" fill="#2F4F4F" rx="1" />
+         <rect x="48" y="2" width="12" height="50" fill="#C5A059" rx="1" />
+         <rect x="64" y="8" width="20" height="44" fill="#8B0000" rx="1" />
+         <rect x="88" y="0" width="18" height="52" fill="#4682B4" rx="1" />
+         <rect x="110" y="4" width="14" height="48" fill="#8B4513" rx="1" />
+         <rect x="128" y="6" width="22" height="46" fill="#6B8E23" rx="1" />
+         <rect x="154" y="0" width="16" height="52" fill="#B8860B" rx="1" />
+         <rect x="174" y="3" width="20" height="49" fill="#1F2937" rx="1" />
+         <rect x="198" y="7" width="12" height="45" fill="#556B2F" rx="1" />
+         <rect x="214" y="0" width="18" height="52" fill="#C5A059" rx="1" />
+         <rect x="236" y="5" width="24" height="47" fill="#2E8B57" rx="1" />
+         <rect x="264" y="2" width="14" height="50" fill="#708090" rx="1" />
+         <rect x="282" y="8" width="16" height="44" fill="#DAA520" rx="1" />
+         <rect x="302" y="0" width="22" height="52" fill="#8B4513" rx="1" />
+         <rect x="328" y="4" width="12" height="48" fill="#4169E1" rx="1" />
+         <rect x="344" y="6" width="20" height="46" fill="#8B0000" rx="1" />
+         <rect x="368" y="0" width="18" height="52" fill="#C5A059" rx="1" />
+         <rect x="390" y="3" width="14" height="49" fill="#2F4F4F" rx="1" />
+         <rect x="408" y="7" width="24" height="45" fill="#B8860B" rx="1" />
+         <rect x="436" y="0" width="16" height="52" fill="#1F2937" rx="1" />
+         <rect x="456" y="5" width="18" height="47" fill="#6B8E23" rx="1" />
+         <rect x="478" y="2" width="20" height="50" fill="#556B2F" rx="1" />
+         <rect x="502" y="8" width="14" height="44" fill="#8B4513" rx="1" />
+        </g> <!-- Reading lamp --> <g transform="translate(480, 320)">
+         <rect x="15" y="60" width="30" height="8" fill="#8B7355" rx="2" />
+         <rect x="27" y="20" width="6" height="42" fill="#B8860B" />
+         <ellipse cx="30" cy="15" rx="25" ry="15" fill="#C5A059" />
+         <ellipse cx="30" cy="15" rx="20" ry="10" fill="#FFFACD" />
+        </g> <!-- Decorative ladder --> <g transform="translate(520, 100)">
+         <rect x="0" y="0" width="6" height="280" fill="#6B4E31" />
+         <rect x="40" y="0" width="6" height="280" fill="#6B4E31" />
+         <rect x="0" y="30" width="46" height="5" fill="#8B7355" />
+         <rect x="0" y="70" width="46" height="5" fill="#8B7355" />
+         <rect x="0" y="110" width="46" height="5" fill="#8B7355" />
+         <rect x="0" y="150" width="46" height="5" fill="#8B7355" />
+         <rect x="0" y="190" width="46" height="5" fill="#8B7355" />
+         <rect x="0" y="230" width="46" height="5" fill="#8B7355" />
+        </g> <!-- Warm light overlay --> <rect x="0" y="0" width="600" height="450" fill="url(#warmLight)" opacity="0.3" /> <defs>
+         <radialgradient id="warmLight" cx="30%" cy="30%">
+          <stop offset="0%" stop-color="#FFFACD" />
+          <stop offset="100%" stop-color="transparent" />
+         </radialgradient>
+        </defs>
+       </svg>
+      </div>
+      <div class="absolute bottom-6 left-6 right-6 p-4" style="background-color: rgba(255,255,255,0.95); border-left: 3px solid var(--color-accent);">
+       <p class="font-serif text-sm italic" style="color: var(--color-text);">"A room without books is like a body without a soul."</p>
+       <p class="text-xs mt-1" style="color: var(--color-secondary);">— Cicero</p>
+      </div>
+     </div>
+    </div><!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+     </svg>
+    </div>
+   </section><!-- Our Story Section -->
+   <section id="story" class="py-24 px-6" style="background-color: var(--color-surface);">
+    <div class="max-w-6xl mx-auto">
+     <div class="grid lg:grid-cols-2 gap-16 items-center"><!-- Story Image -->
+      <div class="relative">
+       <div class="absolute -inset-3 border opacity-20" style="border-color: var(--color-accent);"></div>
+       <svg viewbox="0 0 500 400" class="w-full h-auto" style="background: #F5F0E8;"><!-- Open book illustration --> <rect x="0" y="0" width="500" height="400" fill="#F5F0E8" /> <!-- Reading desk --> <rect x="50" y="300" width="400" height="80" fill="#5C4033" rx="4" /> <rect x="50" y="300" width="400" height="15" fill="#6B4E31" rx="4" /> <!-- Open book --> <g transform="translate(100, 150)"><!-- Book spine/center -->
+         <rect x="145" y="0" width="10" height="150" fill="#8B4513" /> <!-- Left page -->
+         <path d="M145 0 Q80 10 20 5 L20 145 Q80 140 145 150 Z" fill="#FFFEF5" stroke="#DDD" stroke-width="1" /> <!-- Left page lines -->
+         <g stroke="#DDD" stroke-width="0.5" opacity="0.7">
+          <line x1="35" y1="20" x2="130" y2="22" />
+          <line x1="35" y1="35" x2="130" y2="37" />
+          <line x1="35" y1="50" x2="130" y2="52" />
+          <line x1="35" y1="65" x2="130" y2="67" />
+          <line x1="35" y1="80" x2="130" y2="82" />
+          <line x1="35" y1="95" x2="130" y2="97" />
+          <line x1="35" y1="110" x2="130" y2="112" />
+          <line x1="35" y1="125" x2="100" y2="127" />
+         </g> <!-- Right page -->
+         <path d="M155 0 Q220 10 280 5 L280 145 Q220 140 155 150 Z" fill="#FFFEF5" stroke="#DDD" stroke-width="1" /> <!-- Right page lines -->
+         <g stroke="#DDD" stroke-width="0.5" opacity="0.7">
+          <line x1="170" y1="22" x2="265" y2="20" />
+          <line x1="170" y1="37" x2="265" y2="35" />
+          <line x1="170" y1="52" x2="265" y2="50" />
+          <line x1="170" y1="67" x2="265" y2="65" />
+          <line x1="170" y1="82" x2="265" y2="80" />
+          <line x1="170" y1="97" x2="265" y2="95" />
+          <line x1="170" y1="112" x2="265" y2="110" />
+          <line x1="170" y1="127" x2="220" y2="125" />
+         </g> <!-- Book cover edges -->
+         <path d="M15 0 Q80 10 145 0 L145 150 Q80 140 15 150 Z" fill="none" stroke="#8B4513" stroke-width="3" />
+         <path d="M285 0 Q220 10 155 0 L155 150 Q220 140 285 150 Z" fill="none" stroke="#8B4513" stroke-width="3" />
+        </g> <!-- Reading glasses --> <g transform="translate(330, 180)">
+         <ellipse cx="0" cy="0" rx="25" ry="20" fill="none" stroke="#B8860B" stroke-width="3" />
+         <ellipse cx="60" cy="0" rx="25" ry="20" fill="none" stroke="#B8860B" stroke-width="3" />
+         <path d="M25 0 L35 0" stroke="#B8860B" stroke-width="3" />
+         <path d="M-25 -5 L-40 -15" stroke="#B8860B" stroke-width="3" />
+         <path d="M85 -5 L100 -15" stroke="#B8860B" stroke-width="3" />
+         <ellipse cx="0" cy="0" rx="22" ry="17" fill="#F5F0E8" opacity="0.3" />
+         <ellipse cx="60" cy="0" rx="22" ry="17" fill="#F5F0E8" opacity="0.3" />
+        </g> <!-- Tea cup --> <g transform="translate(80, 240)">
+         <ellipse cx="25" cy="35" rx="28" ry="8" fill="#5C4033" />
+         <path d="M0 10 Q0 40 10 50 L40 50 Q50 40 50 10 Z" fill="#FFFEF5" stroke="#DDD" stroke-width="1" />
+         <ellipse cx="25" cy="10" rx="25" ry="8" fill="#FFFEF5" stroke="#DDD" stroke-width="1" />
+         <ellipse cx="25" cy="10" rx="20" ry="5" fill="#8B4513" opacity="0.8" />
+         <path d="M50 20 Q65 20 65 30 Q65 40 50 40" fill="none" stroke="#DDD" stroke-width="2" /> <!-- Steam -->
+         <path d="M20 0 Q15 -10 20 -20" fill="none" stroke="#DDD" stroke-width="1" opacity="0.5" />
+         <path d="M30 0 Q35 -10 30 -20" fill="none" stroke="#DDD" stroke-width="1" opacity="0.5" />
+        </g> <!-- Warm ambiance --> <rect x="0" y="0" width="500" height="400" fill="url(#storyWarm)" opacity="0.2" /> <defs>
+         <radialgradient id="storyWarm" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#FFFACD" />
+          <stop offset="100%" stop-color="transparent" />
+         </radialgradient>
+        </defs>
+       </svg>
+      </div><!-- Story Text -->
+      <div class="space-y-6">
+       <div class="flex items-center space-x-4 mb-2">
+        <div class="w-12 h-px" style="background-color: var(--color-accent);"></div><span class="text-sm font-medium tracking-widest uppercase" style="color: var(--color-accent);">Our Story</span>
+       </div>
+       <h2 id="story-title" class="font-serif text-4xl md:text-5xl font-medium leading-tight" style="color: var(--color-text);">Three Decades of<br>
+        Literary Passion</h2>
+       <div class="space-y-4 text-lg leading-relaxed" style="color: var(--color-secondary);">
+        <p id="story-text">Founded in 1997 by Ramesh and Lakshmi Rao, Akshara Books began as a small corner shop in Begumpet with just 500 carefully selected titles. The name 'Akshara' means 'letter' or 'syllable,' reflecting our belief that every word carries the power to transform minds.</p>
+        <p>What started as a labor of love has grown into one of Hyderabad's most cherished literary institutions. Our shelves have witnessed countless first discoveries, hosted legendary authors, and created a community bound by the love of the written word.</p>
+        <p>Today, we curate over 50,000 titles across our carefully organized collections, from rare first editions to contemporary bestsellers, always maintaining the intimate atmosphere of a private library.</p>
+       </div>
+       <div class="pt-6 flex items-center space-x-8">
+        <div>
+         <p class="font-serif text-4xl font-medium" style="color: var(--color-accent);">50K+</p>
+         <p class="text-sm tracking-wider uppercase" style="color: var(--color-secondary);">Curated Titles</p>
+        </div>
+        <div class="w-px h-16" style="background-color: var(--color-accent); opacity: 0.3;"></div>
+        <div>
+         <p class="font-serif text-4xl font-medium" style="color: var(--color-accent);">30</p>
+         <p class="text-sm tracking-wider uppercase" style="color: var(--color-secondary);">Years Strong</p>
+        </div>
+        <div class="w-px h-16" style="background-color: var(--color-accent); opacity: 0.3;"></div>
+        <div>
+         <p class="font-serif text-4xl font-medium" style="color: var(--color-accent);">∞</p>
+         <p class="text-sm tracking-wider uppercase" style="color: var(--color-secondary);">Stories Shared</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Journey Timeline Section -->
+   <section id="journey" class="py-24 px-6" style="background-color: var(--color-bg);">
+    <div class="max-w-4xl mx-auto"><!-- Section Header -->
+     <div class="text-center mb-20">
+      <div class="flex items-center justify-center space-x-4 mb-4">
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div><span class="text-sm font-medium tracking-widest uppercase" style="color: var(--color-accent);">Our Journey</span>
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-medium" style="color: var(--color-text);">A Legacy in Letters</h2>
+     </div><!-- Timeline -->
+     <div class="relative"><!-- Vertical line -->
+      <div class="absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full" style="background: linear-gradient(to bottom, var(--color-accent), var(--color-accent) 90%, transparent);"></div><!-- Timeline Items -->
+      <div class="space-y-16"><!-- 1997 -->
+       <div class="relative flex items-center">
+        <div class="w-1/2 pr-12 text-right">
+         <div class="inline-block p-6" style="background-color: var(--color-surface); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          <p class="font-serif text-3xl font-medium mb-2" style="color: var(--color-accent);">1997</p>
+          <h3 class="font-serif text-xl font-medium mb-2" style="color: var(--color-text);">The Beginning</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-secondary);">Akshara Books opens its doors in Begumpet with 500 hand-picked titles. A small lamp, a few chairs, and endless dreams.</p>
+         </div>
+        </div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 timeline-dot"></div>
+        <div class="w-1/2 pl-12"></div>
+       </div><!-- 2003 -->
+       <div class="relative flex items-center">
+        <div class="w-1/2 pr-12"></div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 timeline-dot"></div>
+        <div class="w-1/2 pl-12">
+         <div class="inline-block p-6" style="background-color: var(--color-surface); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          <p class="font-serif text-3xl font-medium mb-2" style="color: var(--color-accent);">2003</p>
+          <h3 class="font-serif text-xl font-medium mb-2" style="color: var(--color-text);">First Expansion</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-secondary);">Moved to our current heritage building in Banjara Hills. Added our beloved reading room and café corner.</p>
+         </div>
+        </div>
+       </div><!-- 2010 -->
+       <div class="relative flex items-center">
+        <div class="w-1/2 pr-12 text-right">
+         <div class="inline-block p-6" style="background-color: var(--color-surface); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          <p class="font-serif text-3xl font-medium mb-2" style="color: var(--color-accent);">2010</p>
+          <h3 class="font-serif text-xl font-medium mb-2" style="color: var(--color-text);">Literary Hub</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-secondary);">Launched our Author Talk series. Hosted literary giants including Ruskin Bond, Amitav Ghosh, and contemporary voices.</p>
+         </div>
+        </div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 timeline-dot"></div>
+        <div class="w-1/2 pl-12"></div>
+       </div><!-- 2017 -->
+       <div class="relative flex items-center">
+        <div class="w-1/2 pr-12"></div>
+        <div class="absolute left-1/2 transform -translate-x-1/2 timeline-dot"></div>
+        <div class="w-1/2 pl-12">
+         <div class="inline-block p-6" style="background-color: var(--color-surface); box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+          <p class="font-serif text-3xl font-medium mb-2" style="color: var(--color-accent);">2017</p>
+          <h3 class="font-serif text-xl font-medium mb-2" style="color: var(--color-text);">Two Decades</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-secondary);">Celebrated 20 years with the launch of our Rare Books collection and preservation program for Telugu literature.</p>
+         </div>
+        </div>
+       </div><!-- Today -->
+       <div class="relative flex items-center">
+        <div class="w-1/2 pr-12 text-right">
+         <div class="inline-block p-6" style="background-color: var(--color-surface); box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 2px solid var(--color-accent);">
+          <p class="font-serif text-3xl font-medium mb-2" style="color: var(--color-accent);">Today</p>
+          <h3 class="font-serif text-xl font-medium mb-2" style="color: var(--color-text);">The Journey Continues</h3>
+          <p class="text-sm leading-relaxed" style="color: var(--color-secondary);">Over 50,000 titles, a thriving community of readers, and the same passion that started it all. The best chapters are yet to be written.</p>
+         </div>
+        </div>
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+         <div class="w-5 h-5 rounded-full" style="background-color: var(--color-accent); box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 6px var(--color-accent);"></div>
+        </div>
+        <div class="w-1/2 pl-12"></div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Meet the Author Section -->
+   <section id="authors" class="py-24 px-6" style="background-color: var(--color-surface);">
+    <div class="max-w-7xl mx-auto"><!-- Section Header -->
+     <div class="text-center mb-16">
+      <div class="flex items-center justify-center space-x-4 mb-4">
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div><span class="text-sm font-medium tracking-widest uppercase" style="color: var(--color-accent);">Author Programs</span>
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-medium mb-6" style="color: var(--color-text);">Celebrated Voices at Akshara</h2>
+      <p id="author-text" class="text-lg max-w-3xl mx-auto leading-relaxed" style="color: var(--color-secondary);">Akshara is honored to be a space where readers meet their heroes. We regularly host 'Meet the Author' programs and exclusive book signings, having welcomed icons such as V.S. Naipaul and Shashi Tharoor. Behind our store, under the open sky, we continue the tradition of bringing authors and readers together for meaningful conversation.</p>
+     </div><!-- Gallery Grid -->
+     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Gallery Item 1 -->
+      <div class="gallery-item h-64 md:h-72 rounded-lg overflow-hidden shadow-lg">
+       <svg viewbox="0 0 400 500" class="w-full h-full" style="background: linear-gradient(135deg, #8B4513 0%, #6B4E31 100%);"><rect x="0" y="0" width="400" height="500" fill="url(#grad1)" /> <!-- Stage --> <rect x="20" y="350" width="360" height="120" fill="#5C4033" rx="4" /> <!-- Podium --> <rect x="150" y="300" width="100" height="50" fill="#8B7355" /> <ellipse cx="200" cy="300" rx="60" ry="15" fill="#A0826D" /> <!-- Microphone --> <rect x="195" y="270" width="10" height="30" fill="#C0C0C0" /> <circle cx="200" cy="265" r="8" fill="#C0C0C0" /> <!-- Audience silhouettes --> <g fill="rgba(255,255,255,0.1)">
+         <polygon points="80,280 65,380 95,380" />
+         <polygon points="320,280 305,380 335,380" />
+         <polygon points="120,300 110,380 130,380" />
+         <polygon points="280,300 270,380 290,380" />
+        </g> <!-- Spotlight --> <defs>
+         <radialgradient id="grad1" cx="50%" cy="30%">
+          <stop offset="0%" stop-color="#DAA520" stop-opacity="0.3" />
+          <stop offset="100%" stop-color="#8B4513" stop-opacity="0" />
+         </radialgradient>
+        </defs> <circle cx="200" cy="150" r="150" fill="url(#grad1)" />
+       </svg>
+       <div class="gallery-overlay">
+        <div>
+         <h3 class="font-serif text-xl font-medium text-white mb-2">Author Events</h3>
+         <p class="text-sm text-gray-200">Live readings and intimate conversations</p>
+        </div>
+       </div>
+      </div><!-- Gallery Item 2 -->
+      <div class="gallery-item h-64 md:h-72 rounded-lg overflow-hidden shadow-lg">
+       <svg viewbox="0 0 400 500" class="w-full h-full" style="background: linear-gradient(135deg, #2F4F4F 0%, #1F2937 100%);"><rect x="0" y="0" width="400" height="500" fill="url(#grad2)" /> <!-- Book signing table --> <rect x="50" y="300" width="300" height="150" fill="#6B4E31" rx="4" /> <!-- Table top --> <rect x="60" y="310" width="280" height="20" fill="#8B7355" rx="2" /> <!-- Books stacked --> <g transform="translate(100, 250)">
+         <rect x="0" y="30" width="60" height="8" fill="#8B4513" rx="1" />
+         <rect x="5" y="22" width="50" height="8" fill="#C5A059" rx="1" />
+         <rect x="10" y="14" width="40" height="8" fill="#DAA520" rx="1" />
+         <rect x="15" y="6" width="30" height="8" fill="#B8860B" rx="1" />
+        </g> <g transform="translate(240, 250)">
+         <rect x="0" y="30" width="60" height="8" fill="#8B4513" rx="1" />
+         <rect x="5" y="22" width="50" height="8" fill="#4682B4" rx="1" />
+         <rect x="10" y="14" width="40" height="8" fill="#2E8B57" rx="1" />
+         <rect x="15" y="6" width="30" height="8" fill="#8B0000" rx="1" />
+        </g> <!-- Pen and signature --> <path d="M180 200 Q200 190 220 200" fill="none" stroke="#C5A059" stroke-width="2" /> <path d="M140 210 Q170 215 200 210 Q230 205 260 215" fill="none" stroke="#DAA520" stroke-width="1.5" opacity="0.6" /> <defs>
+         <radialgradient id="grad2" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#C5A059" stop-opacity="0.2" />
+          <stop offset="100%" stop-color="#1F2937" stop-opacity="0" />
+         </radialgradient>
+        </defs>
+       </svg>
+       <div class="gallery-overlay">
+        <div>
+         <h3 class="font-serif text-xl font-medium text-white mb-2">Book Signings</h3>
+         <p class="text-sm text-gray-200">Personalized signatures and moments</p>
+        </div>
+       </div>
+      </div><!-- Gallery Item 3 -->
+      <div class="gallery-item h-64 md:h-72 rounded-lg overflow-hidden shadow-lg">
+       <svg viewbox="0 0 400 500" class="w-full h-full" style="background: linear-gradient(135deg, #556B2F 0%, #6B8E23 100%);"><rect x="0" y="0" width="400" height="500" fill="url(#grad3)" /> <!-- Outdoor setting - starry sky effect --> <circle cx="80" cy="80" r="2" fill="#FFFACD" /> <circle cx="140" cy="60" r="1.5" fill="#FFFACD" /> <circle cx="200" cy="100" r="2" fill="#FFFACD" /> <circle cx="300" cy="70" r="1.5" fill="#FFFACD" /> <circle cx="350" cy="110" r="2" fill="#FFFACD" /> <!-- Trees (silhouettes) --> <g fill="rgba(0,0,0,0.3)">
+         <polygon points="50,500 40,350 80,380 60,300 100,350 70,280 110,320" />
+         <polygon points="350,500 340,350 380,380 360,300 400,350 370,280" />
+        </g> <!-- Seating area --> <circle cx="200" cy="350" r="80" fill="#C5A059" opacity="0.2" /> <rect x="120" y="320" width="20" height="60" fill="#8B7355" /> <rect x="140" y="325" width="120" height="15" fill="#A0826D" /> <rect x="260" y="320" width="20" height="60" fill="#8B7355" /> <!-- People silhouettes --> <g fill="rgba(0,0,0,0.2)">
+         <circle cx="130" cy="300" r="12" />
+         <polygon points="130,312 120,340 140,340" />
+         <circle cx="270" cy="305" r="12" />
+         <polygon points="270,317 260,345 280,345" />
+        </g> <defs>
+         <radialgradient id="grad3" cx="50%" cy="30%">
+          <stop offset="0%" stop-color="#FFFACD" stop-opacity="0.15" />
+          <stop offset="100%" stop-color="#556B2F" stop-opacity="0" />
+         </radialgradient>
+        </defs>
+       </svg>
+       <div class="gallery-overlay">
+        <div>
+         <h3 class="font-serif text-xl font-medium text-white mb-2">Open Sky Gatherings</h3>
+         <p class="text-sm text-gray-200">Intimate conversations under the stars</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Collections Section -->
+   <section id="collections" class="py-24 px-6" style="background-color: var(--color-bg);">
+    <div class="max-w-7xl mx-auto"><!-- Section Header -->
+     <div class="text-center mb-16">
+      <div class="flex items-center justify-center space-x-4 mb-4">
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div><span class="text-sm font-medium tracking-widest uppercase" style="color: var(--color-accent);">Collections</span>
+       <div class="w-12 h-px" style="background-color: var(--color-accent);"></div>
+      </div>
+      <h2 class="font-serif text-4xl md:text-5xl font-medium mb-4" style="color: var(--color-text);">Curated for Curious Minds</h2>
+      <p class="text-lg max-w-2xl mx-auto" style="color: var(--color-secondary);">Explore our carefully organized collections, each shelf telling its own story.</p>
+     </div><!-- Collection Grid -->
+     <div class="grid md:grid-cols-2 gap-8"><!-- Collection 1: Fiction -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer" style="background-color: var(--color-surface);">
+       <div class="aspect-[4/3] relative">
+        <svg viewbox="0 0 400 300" class="w-full h-full" preserveaspectratio="xMidYMid slice"><rect x="0" y="0" width="400" height="300" fill="#2F4F4F" /> <!-- Stacked books illustration --> <g transform="translate(100, 80)">
+          <rect x="0" y="100" width="200" height="25" fill="#8B4513" rx="2" />
+          <rect x="10" y="75" width="180" height="22" fill="#C5A059" rx="2" />
+          <rect x="5" y="52" width="190" height="20" fill="#DAA520" rx="2" />
+          <rect x="15" y="30" width="170" height="18" fill="#8B0000" rx="2" />
+          <rect x="8" y="10" width="184" height="17" fill="#4682B4" rx="2" /> <!-- Open book on top -->
+          <path d="M60 -10 Q100 -30 140 -10 L140 8 Q100 -12 60 8 Z" fill="#FFFEF5" />
+          <path d="M60 -10 Q100 0 140 -10" fill="none" stroke="#DDD" stroke-width="0.5" />
+         </g> <text x="200" y="260" text-anchor="middle" fill="#FFFEF5" font-family="Playfair Display, serif" font-size="14" letter-spacing="2">
+          FICTION
+         </text>
+        </svg>
+        <div class="card-overlay absolute inset-0 flex items-end p-8 opacity-0" style="background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);">
+         <div>
+          <h3 class="font-serif text-2xl font-medium text-white mb-2">Literary Fiction</h3>
+          <p class="text-sm text-gray-300 mb-4">From timeless classics to contemporary voices. Stories that stay with you.</p><span class="inline-flex items-center text-sm font-medium tracking-wider uppercase" style="color: var(--color-accent);"> Browse Collection 
+           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+           </svg></span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Collection 2: Non Fiction -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer" style="background-color: var(--color-surface);">
+       <div class="aspect-[4/3] relative">
+        <svg viewbox="0 0 400 300" class="w-full h-full" preserveaspectratio="xMidYMid slice"><rect x="0" y="0" width="400" height="300" fill="#1F2937" /> <!-- Stack of reference books --> <g transform="translate(80, 90)">
+          <rect x="20" y="100" width="160" height="20" fill="#B8860B" rx="1" />
+          <rect x="15" y="78" width="170" height="18" fill="#8B4513" rx="1" />
+          <rect x="10" y="56" width="180" height="18" fill="#708090" rx="1" />
+          <rect x="5" y="34" width="190" height="18" fill="#556B2F" rx="1" />
+          <rect x="0" y="12" width="200" height="18" fill="#4682B4" rx="1" /> <!-- Lines representing text -->
+          <g stroke="#FFFEF5" stroke-width="0.5" opacity="0.3">
+           <line x1="20" y1="50" x2="180" y2="50" />
+           <line x1="20" y1="60" x2="180" y2="60" />
+           <line x1="20" y1="70" x2="180" y2="70" />
+          </g>
+         </g> <text x="200" y="260" text-anchor="middle" fill="#FFFEF5" font-family="Playfair Display, serif" font-size="14" letter-spacing="2">
+          NON FICTION
+         </text>
+        </svg>
+        <div class="card-overlay absolute inset-0 flex items-end p-8 opacity-0" style="background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);">
+         <div>
+          <h3 class="font-serif text-2xl font-medium text-white mb-2">Non Fiction</h3>
+          <p class="text-sm text-gray-300 mb-4">History, biography, science, and essays. Truth as compelling as any story.</p><span class="inline-flex items-center text-sm font-medium tracking-wider uppercase" style="color: var(--color-accent);"> Browse Collection 
+           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+           </svg></span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Collection 3: Children -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer" style="background-color: var(--color-surface);">
+       <div class="aspect-[4/3] relative">
+        <svg viewbox="0 0 400 300" class="w-full h-full" preserveaspectratio="xMidYMid slice"><rect x="0" y="0" width="400" height="300" fill="#C5A059" /> <!-- Colorful children's books --> <g transform="translate(60, 80)">
+          <rect x="0" y="100" width="30" height="80" fill="#FF6B6B" rx="2" />
+          <rect x="35" y="95" width="30" height="85" fill="#4ECDC4" rx="2" />
+          <rect x="70" y="90" width="30" height="90" fill="#FFE66D" rx="2" />
+          <rect x="105" y="100" width="30" height="80" fill="#95E1D3" rx="2" />
+          <rect x="140" y="85" width="30" height="95" fill="#F38181" rx="2" /> <!-- Stars and shapes on covers -->
+          <circle cx="15" cy="120" r="4" fill="#FFFEF5" opacity="0.6" />
+          <circle cx="50" cy="130" r="4" fill="#FFFEF5" opacity="0.6" />
+          <polygon points="85,110 90,125 75,125" fill="#FFFEF5" opacity="0.6" />
+          <circle cx="120" cy="120" r="5" fill="#FFFEF5" opacity="0.6" />
+          <polygon points="155,100 165,120 145,120" fill="#FFFEF5" opacity="0.6" />
+         </g> <text x="200" y="260" text-anchor="middle" fill="#FFFEF5" font-family="Playfair Display, serif" font-size="14" letter-spacing="2">
+          CHILDREN
+         </text>
+        </svg>
+        <div class="card-overlay absolute inset-0 flex items-end p-8 opacity-0" style="background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);">
+         <div>
+          <h3 class="font-serif text-2xl font-medium text-white mb-2">Children</h3>
+          <p class="text-sm text-gray-300 mb-4">Picture books, adventures, and imagination. Stories that inspire young minds.</p><span class="inline-flex items-center text-sm font-medium tracking-wider uppercase" style="color: var(--color-accent);"> Browse Collection 
+           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+           </svg></span>
+         </div>
+        </div>
+       </div>
+      </div><!-- Collection 4: Telugu -->
+      <div class="collection-card group relative overflow-hidden cursor-pointer" style="background-color: var(--color-surface);">
+       <div class="aspect-[4/3] relative">
+        <svg viewbox="0 0 400 300" class="w-full h-full" preserveaspectratio="xMidYMid slice"><rect x="0" y="0" width="400" height="300" fill="#2E8B57" /> <!-- Telugu literature representation --> <g transform="translate(150, 100)"><!-- Central book standing -->
+          <rect x="-15" y="40" width="30" height="90" fill="#8B4513" rx="2" />
+          <rect x="-12" y="42" width="24" height="85" fill="#C5A059" rx="1" /> <!-- Ornamental elements (inspired by Telugu script) -->
+          <circle cx="0" cy="60" r="8" fill="#DAA520" />
+          <path d="M-5 75 Q0 85 5 75" fill="none" stroke="#DAA520" stroke-width="1.5" opacity="0.7" />
+          <path d="M-8 85 L8 85" stroke="#DAA520" stroke-width="1" opacity="0.6" /> <!-- Surrounding books -->
+          <rect x="-55" y="80" width="25" height="50" fill="#556B2F" rx="1" />
+          <rect x="35" y="75" width="25" height="55" fill="#4682B4" rx="1" />
+         </g> <text x="200" y="260" text-anchor="middle" fill="#FFFEF5" font-family="Playfair Display, serif" font-size="14" letter-spacing="2">
+          TELUGU
+         </text>
+        </svg>
+        <div class="card-overlay absolute inset-0 flex items-end p-8 opacity-0" style="background: linear-gradient(to top, rgba(31, 41, 55, 0.9), transparent);">
+         <div>
+          <h3 class="font-serif text-2xl font-medium text-white mb-2">Telugu Literature</h3>
+          <p class="text-sm text-gray-300 mb-4">Regional classics and contemporary works. The voice of our region, preserved and celebrated.</p><span class="inline-flex items-center text-sm font-medium tracking-wider uppercase" style="color: var(--color-accent);"> Browse Collection 
+           <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+           </svg></span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer id="contact" class="py-16 px-6" style="background-color: var(--color-text);">
+    <div class="max-w-7xl mx-auto">
+     <div class="grid md:grid-cols-3 gap-12 mb-12"><!-- Column 1: Brand -->
+      <div class="space-y-6">
+       <div class="font-serif text-3xl font-semibold text-white"><span style="color: var(--color-accent);">A</span> Akshara Books
+       </div>
+       <p id="footer-tagline" class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.6);">Hyderabad's beloved independent bookstore. Curating stories since 1997.</p>
+       <div class="flex space-x-4"><a href="#" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors hover:opacity-80" style="background-color: var(--color-accent);">
+         <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+         </svg></a> <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors hover:opacity-80" style="background-color: var(--color-accent);">
+         <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+         </svg></a> <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full transition-colors hover:opacity-80" style="background-color: var(--color-accent);">
+         <svg class="w-5 h-5 text-white" fill="currentColor" viewbox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+         </svg></a>
+       </div>
+      </div><!-- Column 2: Quick Links -->
+      <div class="space-y-6">
+       <h4 class="font-serif text-lg font-medium text-white">Explore</h4>
+       <nav class="space-y-3"><a href="#story" class="block text-sm transition-colors hover:opacity-80" style="color: rgba(255,255,255,0.6);">Our Story</a> <a href="#journey" class="block text-sm transition-colors hover:opacity-80" style="color: rgba(255,255,255,0.6);">Our Journey</a> <a href="#authors" class="block text-sm transition-colors hover:opacity-80" style="color: rgba(255,255,255,0.6);">Meet Authors</a> <a href="#collections" class="block text-sm transition-colors hover:opacity-80" style="color: rgba(255,255,255,0.6);">Collections</a> <a href="#" class="block text-sm transition-colors hover:opacity-80" style="color: rgba(255,255,255,0.6);">Book Club</a>
+       </nav>
+      </div><!-- Column 3: Visit Us -->
+      <div class="space-y-6">
+       <h4 class="font-serif text-lg font-medium text-white">Visit Us</h4>
+       <div class="space-y-4">
+        <div class="flex items-start space-x-3">
+         <svg class="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+         </svg>
+         <p class="text-sm" style="color: rgba(255,255,255,0.6);">42, Road No. 12<br>
+           Banjara Hills<br>
+           Hyderabad - 500034</p>
+        </div>
+        <div class="flex items-center space-x-3">
+         <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+         </svg>
+         <p class="text-sm" style="color: rgba(255,255,255,0.6);">Mon - Sat: 10am - 8pm<br>
+           Sunday: 11am - 6pm</p>
+        </div>
+        <div class="flex items-center space-x-3">
+         <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24" style="color: var(--color-accent);"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+         </svg>
+         <p class="text-sm" style="color: rgba(255,255,255,0.6);">+91 40 2355 6789</p>
+        </div>
+       </div>
+      </div>
+     </div><!-- Footer Bottom -->
+     <div class="pt-8 border-t" style="border-color: rgba(255,255,255,0.1);">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+       <p class="text-xs" style="color: rgba(255,255,255,0.4);">© 2024 Akshara Books. All rights reserved.</p>
+       <p class="text-xs italic font-serif" style="color: rgba(255,255,255,0.4);">Books are the ocean of knowledge.</p>
+      </div>
+     </div>
+    </div>
+   </footer>
+  </div>
+  <script>
+    // Default configuration
+    const defaultConfig = {
+      hero_title: "Where Stories Find Their Readers",
+      hero_subtitle: "For three decades, we've been curating the finest literary collections in the heart of Hyderabad. A sanctuary for bibliophiles.",
+      story_title: "Three Decades of Literary Passion",
+      story_text: "Founded in 1997 by Ramesh and Lakshmi Rao, Akshara Books began as a small corner shop in Begumpet with just 500 carefully selected titles. The name 'Akshara' means 'letter' or 'syllable,' reflecting our belief that every word carries the power to transform minds.",
+      author_text: "Akshara is honored to be a space where readers meet their heroes. We regularly host 'Meet the Author' programs and exclusive book signings, having welcomed icons such as V.S. Naipaul and Shashi Tharoor. Behind our store, under the open sky, we continue the tradition of bringing authors and readers together for meaningful conversation.",
+      footer_tagline: "Hyderabad's beloved independent bookstore. Curating stories since 1997.",
+      background_color: "#F9FAFB",
+      surface_color: "#FFFFFF",
+      text_color: "#1F2937",
+      accent_color: "#C5A059",
+      secondary_color: "#6B7280",
+      font_family: "Playfair Display",
+      font_size: 16
+    };
+
+    // Element initialization
+    async function initElement() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities,
+          mapToEditPanelValues
+        });
+      }
+    }
+
+    // Render function to update UI based on config
+    async function onConfigChange(config) {
+      // Update hero section
+      const heroTitle = document.getElementById('hero-title');
+      if (heroTitle) {
+        const titleText = config.hero_title || defaultConfig.hero_title;
+        const parts = titleText.split(' ');
+        if (parts.length >= 3) {
+          heroTitle.innerHTML = `${parts.slice(0, 2).join(' ')}<br>${parts.slice(2, 4).join(' ')}<br><em class="font-normal" style="color: var(--color-accent);">${parts.slice(4).join(' ') || 'Readers'}</em>`;
+        } else {
+          heroTitle.textContent = titleText;
+        }
+      }
+
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) {
+        heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      }
+
+      // Update story section
+      const storyTitle = document.getElementById('story-title');
+      if (storyTitle) {
+        const titleText = config.story_title || defaultConfig.story_title;
+        const parts = titleText.split(' ');
+        if (parts.length >= 3) {
+          storyTitle.innerHTML = `${parts.slice(0, 3).join(' ')}<br>${parts.slice(3).join(' ')}`;
+        } else {
+          storyTitle.textContent = titleText;
+        }
+      }
+
+      const storyText = document.getElementById('story-text');
+      if (storyText) {
+        storyText.textContent = config.story_text || defaultConfig.story_text;
+      }
+
+      // Update author section
+      const authorText = document.getElementById('author-text');
+      if (authorText) {
+        authorText.textContent = config.author_text || defaultConfig.author_text;
+      }
+
+      // Update footer
+      const footerTagline = document.getElementById('footer-tagline');
+      if (footerTagline) {
+        footerTagline.textContent = config.footer_tagline || defaultConfig.footer_tagline;
+      }
+
+      // Update colors
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+
+      document.documentElement.style.setProperty('--color-bg', bgColor);
+      document.documentElement.style.setProperty('--color-surface', surfaceColor);
+      document.documentElement.style.setProperty('--color-text', textColor);
+      document.documentElement.style.setProperty('--color-accent', accentColor);
+      document.documentElement.style.setProperty('--color-secondary', secondaryColor);
+
+      // Update font
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'Georgia, serif';
+      document.querySelectorAll('.font-serif').forEach(el => {
+        el.style.fontFamily = `${fontFamily}, ${baseFontStack}`;
+      });
+
+      // Update font sizes
+      const baseSize = config.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+    }
+
+    // Map config to capabilities
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_color || defaultConfig.secondary_color,
+            set: (value) => {
+              config.secondary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ secondary_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            if (window.elementSdk) window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    // Map config to edit panel values
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["story_title", config.story_title || defaultConfig.story_title],
+        ["story_text", config.story_text || defaultConfig.story_text],
+        ["author_text", config.author_text || defaultConfig.author_text],
+        ["footer_tagline", config.footer_tagline || defaultConfig.footer_tagline]
+      ]);
+    }
+
+    // Initialize on load
+    initElement();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ce36eb870099a40',t:'MTc3MTE0NDExNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
