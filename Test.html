@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshara Books - Heritage Bookstore</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        eggshell: '#F9FAFB',
+                        charcoal: '#1F2937',
+                        gold: '#C5A059',
+                        'gold-dark': '#A68547',
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Source Sans 3', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-eggshell text-charcoal font-sans antialiased">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 py-4 bg-transparent">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center gap-2">
+                <img src="logo.png" alt="Akshara Books Logo" class="h-[44px] w-auto object-contain">
+            </div>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#story" class="text-charcoal/80 hover:text-gold font-medium transition-colors text-sm uppercase tracking-widest">Our Story</a>
+                <a href="#collections" class="text-charcoal/80 hover:text-gold font-medium transition-colors text-sm uppercase tracking-widest">Collections</a>
+                <a href="#events" class="text-charcoal/80 hover:text-gold font-medium transition-colors text-sm uppercase tracking-widest">Events</a>
+                <a href="#contact" class="text-charcoal/80 hover:text-gold font-medium transition-colors text-sm uppercase tracking-widest">Contact</a>
+                <button class="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-sm transition-all text-sm font-semibold tracking-wide">
+                    VISIT US
+                </button>
+            </div>
+
+            <!-- Mobile Toggle -->
+            <button id="menu-toggle" class="md:hidden text-charcoal p-2">
+                <i data-lucide="menu" size="28"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 right-0 bg-eggshell border-t border-charcoal/5 shadow-xl md:hidden">
+            <div class="flex flex-col p-6 gap-4">
+                <a href="#story" class="mobile-link text-charcoal text-lg font-serif border-b border-charcoal/5 pb-2">Our Story</a>
+                <a href="#collections" class="mobile-link text-charcoal text-lg font-serif border-b border-charcoal/5 pb-2">Collections</a>
+                <a href="#events" class="mobile-link text-charcoal text-lg font-serif border-b border-charcoal/5 pb-2">Events</a>
+                <a href="#contact" class="mobile-link text-charcoal text-lg font-serif border-b border-charcoal/5 pb-2">Contact</a>
+                <button class="bg-gold text-white py-3 rounded-sm font-semibold mt-2">
+                    VISIT US
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex flex-col md:flex-row pt-20 overflow-hidden">
+            <div class="flex-1 flex items-center px-6 md:px-12 lg:px-24 py-12 md:py-0 bg-eggshell">
+                <div class="reveal-left max-w-xl">
+                    <span class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-4 block">ESTABLISHED 1997</span>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-charcoal leading-[1.1] mb-8">
+                        Where Stories Find Their <span class="italic text-gold">Readers</span>
+                    </h1>
+                    <p class="text-charcoal/70 text-lg md:text-xl mb-10 leading-relaxed font-sans max-w-md">
+                        A heritage sanctuary for bibliophiles in the heart of Hyderabad. Discover curated collections and timeless wisdom.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <button class="bg-charcoal text-eggshell px-8 py-4 rounded-sm flex items-center gap-2 hover:bg-charcoal/90 transition-all group">
+                            Explore Collections
+                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        <a href="#story" class="border border-charcoal/20 text-charcoal px-8 py-4 rounded-sm hover:border-gold hover:text-gold transition-all text-center">
+                            Our Story
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="flex-1 relative min-h-[400px] md:min-h-screen">
+                <div class="reveal-zoom absolute inset-0">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=2000" alt="Cozy bookstore interior" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-charcoal/10"></div>
+                </div>
+                <div class="absolute bottom-0 left-0 bg-gold p-8 hidden lg:block">
+                    <p class="text-white font-serif italic text-xl max-w-[200px]">
+                        "A book is a gift you can open again and again."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section id="story" class="py-24 px-6 md:px-12 lg:px-24 bg-white">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal-up relative">
+                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1200" alt="Vintage books" class="rounded-sm shadow-2xl">
+                    <div class="absolute -bottom-6 -right-6 bg-eggshell border border-gold/20 p-6 shadow-lg hidden sm:block">
+                        <p class="text-gold font-serif text-4xl font-bold">30+</p>
+                        <p class="text-charcoal/60 text-xs uppercase tracking-widest">Years of Passion</p>
+                    </div>
+                </div>
+                <div class="reveal-up delay-200">
+                    <h2 class="text-4xl md:text-5xl font-serif text-charcoal mb-6">Our Story</h2>
+                    <div class="w-20 h-1 bg-gold mb-8"></div>
+                    <p class="text-charcoal/80 text-lg leading-relaxed mb-6">
+                        Founded in 1997, Akshara Books began as a small dream in the vibrant neighborhood of Banjara Hills. Over the last three decades, we have grown into a landmark for literature in Hyderabad.
+                    </p>
+                    <p class="text-charcoal/80 text-lg leading-relaxed mb-8">
+                        Our mission has always been simple: to provide a sanctuary where stories find their readers. We believe that a bookstore is more than just a shop; it's a community hub, a place for intellectual exchange.
+                    </p>
+                    <div class="grid grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-serif text-xl text-charcoal mb-2">Heritage</h4>
+                            <p class="text-charcoal/60 text-sm">Preserving the art of reading since the late 90s.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-serif text-xl text-charcoal mb-2">Community</h4>
+                            <p class="text-charcoal/60 text-sm">A home for local authors and global thinkers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Collections Section -->
+        <section id="collections" class="py-24 px-6 md:px-12 lg:px-24 bg-eggshell">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16 reveal-up">
+                    <h2 class="text-4xl md:text-5xl font-serif text-charcoal mb-4">Curated Collections</h2>
+                    <p class="text-charcoal/60 max-w-2xl mx-auto">Explore our diverse range of titles, hand-picked for the discerning reader.</p>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Card 1 -->
+                    <div class="reveal-up group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal/5">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?auto=format&fit=crop&q=80&w=800" alt="Fiction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4 text-gold"><i data-lucide="book-open"></i></div>
+                            <h3 class="text-xl font-serif text-charcoal mb-2">Fiction</h3>
+                            <p class="text-charcoal/60 text-sm leading-relaxed mb-4">From literary classics to contemporary masterpieces.</p>
+                            <button class="text-gold font-semibold text-xs uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Browse <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="reveal-up delay-100 group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal/5">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&q=80&w=800" alt="Non-Fiction" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4 text-gold"><i data-lucide="users"></i></div>
+                            <h3 class="text-xl font-serif text-charcoal mb-2">Non-Fiction</h3>
+                            <p class="text-charcoal/60 text-sm leading-relaxed mb-4">Biographies, history, and thought-provoking essays.</p>
+                            <button class="text-gold font-semibold text-xs uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Browse <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="reveal-up delay-200 group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal/5">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=800" alt="Children's" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4 text-gold"><i data-lucide="calendar"></i></div>
+                            <h3 class="text-xl font-serif text-charcoal mb-2">Children's</h3>
+                            <p class="text-charcoal/60 text-sm leading-relaxed mb-4">Igniting imagination in the next generation of readers.</p>
+                            <button class="text-gold font-semibold text-xs uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Browse <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="reveal-up delay-300 group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-charcoal/5">
+                        <div class="h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=800" alt="Telugu Literature" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6">
+                            <div class="mb-4 text-gold"><i data-lucide="book-open"></i></div>
+                            <h3 class="text-xl font-serif text-charcoal mb-2">Telugu Literature</h3>
+                            <p class="text-charcoal/60 text-sm leading-relaxed mb-4">A curated selection of regional heritage and modern prose.</p>
+                            <button class="text-gold font-semibold text-xs uppercase tracking-widest flex items-center gap-1 group-hover:gap-2 transition-all">
+                                Browse <i data-lucide="chevron-right" class="w-3 h-3"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Author Events Section -->
+        <section id="events" class="py-24 px-6 md:px-12 lg:px-24 bg-charcoal text-eggshell overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
+            <div class="max-w-7xl mx-auto relative z-10">
+                <div class="grid md:grid-cols-2 gap-16 items-center">
+                    <div class="reveal-left">
+                        <span class="text-gold font-semibold tracking-[0.2em] uppercase text-xs mb-4 block">LITERARY LEGACY</span>
+                        <h2 class="text-4xl md:text-5xl font-serif mb-8">Author Events</h2>
+                        <p class="text-eggshell/70 text-lg leading-relaxed mb-8">
+                            Akshara has been a proud host to some of the most iconic voices in literature. From intimate book signings to grand literary discussions.
+                        </p>
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                                    <span class="text-gold font-serif text-xl">RB</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-xl">Ruskin Bond</h4>
+                                    <p class="text-eggshell/50 text-sm italic">"A memorable evening of mountain stories and nostalgia."</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gold/20 flex items-center justify-center shrink-0">
+                                    <span class="text-gold font-serif text-xl">ST</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-serif text-xl">Shashi Tharoor</h4>
+                                    <p class="text-eggshell/50 text-sm italic">"Engaging discussions on history, politics, and prose."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="mt-12 bg-gold hover:bg-gold-dark text-white px-8 py-4 rounded-sm transition-all font-semibold">
+                            View Upcoming Events
+                        </button>
+                    </div>
+                    <div class="reveal-zoom grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <img src="https://images.unsplash.com/photo-1513001900722-370f803f498d?auto=format&fit=crop&q=80&w=600" alt="Event 1" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=600" alt="Event 2" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                        </div>
+                        <div class="space-y-4 pt-8">
+                            <img src="https://images.unsplash.com/photo-1491843351663-7304c982d9d1?auto=format&fit=crop&q=80&w=600" alt="Event 3" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                            <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=600" alt="Event 4" class="rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-charcoal text-eggshell pt-20 pb-10 px-6 md:px-12 lg:px-24">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="mb-6">
+                        <img src="logo.png" alt="Akshara Books Logo" class="h-[60px] w-auto object-contain rounded-sm p-1">
+                    </div>
+                    <p class="text-eggshell/60 max-w-sm mb-8 leading-relaxed">
+                        A heritage independent bookstore in Hyderabad, dedicated to the love of reading and the power of stories since 1997.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full border border-eggshell/10 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-eggshell/10 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
+                            <i data-lucide="facebook" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full border border-eggshell/10 flex items-center justify-center hover:bg-gold hover:border-gold transition-all">
+                            <i data-lucide="twitter" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-6">Visit Us</h4>
+                    <ul class="space-y-4 text-eggshell/60">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="text-gold shrink-0 mt-1 w-4 h-4"></i>
+                            <span>Road No. 12, Banjara Hills,<br>Hyderabad, Telangana 500034</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="clock" class="text-gold shrink-0 w-4 h-4"></i>
+                            <span>Mon - Sun: 10:30 AM - 8:30 PM</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="text-gold shrink-0 w-4 h-4"></i>
+                            <span>+91 40 2331 2578</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-serif text-xl mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-eggshell/60">
+                        <li><a href="#story" class="hover:text-gold transition-colors">Our Story</a></li>
+                        <li><a href="#collections" class="hover:text-gold transition-colors">Collections</a></li>
+                        <li><a href="#events" class="hover:text-gold transition-colors">Author Events</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-eggshell/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-eggshell/40 text-center">
+                <p>© 2026 Akshara Books. All rights reserved.</p>
+                <div class="flex gap-8">
+                    <a href="#" class="hover:text-eggshell/60">Privacy Policy</a>
+                    <a href="#" class="hover:text-eggshell/60">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="script.js"></script>
+</body>
+</html>
